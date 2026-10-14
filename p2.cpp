@@ -1,0 +1,48 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string s = "mani        the zhooter";
+    int i = 0, n = s.length();
+    int count = 0;
+    int b = 0;
+
+    // Step 1: Reverse entire string
+    reverse(s.begin(), s.end());
+
+    // Step 2: Traverse string
+    while (i < n) {
+        if (s[i] == ' ') {
+            if (count == 0) {
+                
+                reverse(s.begin() + b, s.begin() + i);
+                count++;
+            }
+            i++;
+        } 
+        else {
+            count = 0;
+            
+            if (i == 0 || s[i - 1] == ' ') {
+                b = i;
+            }
+            i++;
+        }
+    }
+
+    
+    if (count == 0) {
+        reverse(s.begin() + b, s.begin() + n);
+    }
+
+    
+    for (int a = 0; a < s.length(); a++) {
+        cout << s[a];
+    }
+    cout << endl;
+
+    return 0;
+}
