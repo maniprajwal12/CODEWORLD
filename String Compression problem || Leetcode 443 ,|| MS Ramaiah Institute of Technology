@@ -1,0 +1,39 @@
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+#include<climits>
+#include<vector>
+using namespace std;
+
+
+int main()
+{
+    int count=1;
+    string s="abbccd";
+    string vec;
+
+    for(int i=0;i<(s.length());i++){
+        
+            if(count==1 && !(count>1)){
+                vec.push_back(s[i]);
+            }
+        if(s[i]==s[i+1]){
+            count++;
+        }
+        else{
+            if(count!=1){
+
+                vec.push_back('0'+count);
+            }
+            
+            count=1;
+        }
+
+
+    }
+    int z=vec.size();
+    int y=0;
+    cout<<vec;
+
+    return 0;
+}
